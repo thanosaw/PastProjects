@@ -1,4 +1,4 @@
-#include <stack>
+#include <queue>
 #include <string>
 #include <iostream>
 using namespace std;
@@ -20,7 +20,7 @@ bool pathExists(string maze[], int nRows, int nCols, int sr, int sc, int er, int
         return false;
     }
      */
-    stack<Coord> stk;
+    queue<Coord> stk;
     
     if (maze[sr][sc]=='.'){
         stk.push(Coord(sr,sc));
@@ -32,7 +32,7 @@ bool pathExists(string maze[], int nRows, int nCols, int sr, int sc, int er, int
     
     while(!stk.empty()){
         
-        Coord location = stk.top();
+        Coord location = stk.front();
         stk.pop();
         
         if (location.r()==er && location.c()==ec) {
